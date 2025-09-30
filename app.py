@@ -187,23 +187,23 @@ if st.session_state.simulacao_gerada:
             st.metric("Mínima Geração Mensal", f"{df_mensal['Geração Solar (kWh/mês)'].min():.1f} kWh")
             st.metric("Irradiação Média", f"{df_mensal['GHI'].mean():.2f} kWh/m²/dia")
     
-    # with tab3:
-    #     st.subheader("Dados Detalhados Mensais")
-    #     st.dataframe(
-    #         df_mensal[['GHI', 'Geração Solar (kWh/mês)', 
-    #                   'Custo sem Solar (R$)', 'Custo com Solar (R$)', 'Economia (R$)']].round(2),
-    #         use_container_width=True
-    #     )
+    with tab3:
+        st.subheader("Dados Detalhados Mensais")
+        st.dataframe(
+            df_mensal[['GHI', 'Geração Solar (kWh/mês)', 
+                      'Custo sem Solar (R$)', 'Custo com Solar (R$)', 'Economia (R$)']].round(2),
+            use_container_width=True
+        )
         
-    #     # Botão para download dos dados
-    #     csv = df_mensal.to_csv(index=True).encode('utf-8')
-    #     st.download_button(
-    #         label="Download dos dados em CSV",
-    #         data=csv,
-    #         file_name="dados_simulacao_solar_mensal.csv",
-    #         mime="text/csv",
-    #         use_container_width=True
-    #     )
+        # Botão para download dos dados
+        csv = df_mensal.to_csv(index=True).encode('utf-8')
+        st.download_button(
+            label="Download dos dados em CSV",
+            data=csv,
+            file_name="dados_simulacao_solar_mensal.csv",
+            mime="text/csv",
+            use_container_width=True
+        )
 
 else:
     # Tela inicial antes da simulação
