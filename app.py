@@ -25,7 +25,7 @@ def obter_irradiancia(lat, lon, start, end):
 
 # Função para calcular geração de energia
 def calcular_geracao(ghi, pot_painel, ef_painel, qtd, ef_inversor):
-    # GHI está em kWh/m²/dia → convertemos para energia gerada pelo sistema
+    # GHI está em kWh/m²/dia -> convertemos para energia gerada pelo sistema
     energia = ghi * (pot_painel/1000) * ef_painel * qtd * ef_inversor
     return energia
 
